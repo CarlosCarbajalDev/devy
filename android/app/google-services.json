@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "251347814197",
+    "project_id": "devyapp-be15e",
+    "storage_bucket": "devyapp-be15e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:251347814197:android:b9922be851831b908f6e7c",
+        "android_client_info": {
+          "package_name": "com.example.devyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "251347814197-mkqk00s3it3f39fudjif6h032t51n3op.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.devyapp",
+            "certificate_hash": "2808d789a0e97143f166af0f5b044e15a35b58a6"
+          }
+        },
+        {
+          "client_id": "251347814197-q2oeksq0oo3juruc2u8a63fghj4muqfn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAr4DVzHLPa7gMzWiYh7lpZADdWaNTPjBQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "251347814197-q2oeksq0oo3juruc2u8a63fghj4muqfn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

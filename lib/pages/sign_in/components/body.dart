@@ -1,5 +1,11 @@
+import 'dart:math';
+
+import 'package:devyapp/pages/home/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+/* import 'package:flutter_signin_button/button_list.dart';
+import 'package:flutter_signin_button/button_view.dart'; */
 import 'package:google_sign_in/google_sign_in.dart';
 import 'sign_form.dart';
 import '../../../size_config.dart';
@@ -14,29 +20,23 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  _googleSignUp() async {
-    try {
-      final GoogleSignIn _googleSignIn = GoogleSignIn(
-        scopes: ['email'],
-      );
-      final FirebaseAuth _auth = FirebaseAuth.instance;
+  Future<UserCredential> signInWithGoogle() async {
+    Firebase user;
+    // Trigger the authentication flow
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
-      final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
-      final GoogleSignInAuthentication? googleAuth =
-          await googleUser?.authentication;
+    // Obtain the auth details from the request
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
 
-      final AuthCredential credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth?.accessToken,
-        idToken: googleAuth?.idToken,
-      );
+    // Create a new credential
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
 
-      final User? user = (await _auth.signInWithCredential(credential)).user;
-      // print("signed in " + user.displayName);
-
-      return user;
-    } catch (e) {
-      return NullThrownError();
-    }
+    // Once signed in, return the UserCredential
+    return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 
   @override
@@ -72,13 +72,18 @@ class _BodyState extends State<Body> {
                     SocalCard(
                       icon: "assets/icons/google-icon.svg",
                       press: () {
-                        print(_googleSignUp());
+                        signInWithGoogle().then((value) {
+                          print("respuesta");
+                          print(value);
+                          print("Termina respuesta");
+                          Navigator.pushNamed(context, HomeScreen.routeName);
+                        });
                       },
                     ),
                     SocalCard(
                       icon: "assets/icons/facebook-2.svg",
                       press: () {
-                        print(_googleSignUp());
+                        /* print(_googleSignUp()); */
                       },
                     ),
                     /* SocalCard(
