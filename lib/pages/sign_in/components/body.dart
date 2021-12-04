@@ -1,4 +1,4 @@
-import 'dart:math';
+
 
 import 'package:devyapp/pages/home/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -74,7 +74,7 @@ class _BodyState extends State<Body> {
                       press: () {
                         signInWithGoogle().then((value) {
                           print("respuesta");
-                          print(value);
+                          print(value.user);
                           print("Termina respuesta");
                           Navigator.pushNamed(context, HomeScreen.routeName);
                         });
