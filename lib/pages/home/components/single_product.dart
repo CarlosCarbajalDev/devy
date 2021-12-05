@@ -1,11 +1,16 @@
+/* singal_product */
+//Probablemnente necesitara un ajusted despues
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
 
 class SingalProducts extends StatelessWidget {
-  const SingalProducts({
-    Key? key,
-  }) : super(key: key);
+  final String productImage;
+  final String productName;
+  final Function? onTap;
+
+  const SingalProducts({Key? key, required this.productImage, required this.productName, this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,74 +34,77 @@ class SingalProducts extends StatelessWidget {
         children: [
           Expanded(
             flex: 2,
-            child: Image.network('https://nudient.centracdn.net/client/dynamic/images/671_4f172010b1-productcard-iphone-13-pro-max-saffron-yellow-full.jpg'),
+            child: Image.network(productImage),
           ),
           Expanded(
-            child: Container(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal:  10.0, vertical: 8),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text('Funda Iphone 12', 
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold
+          child: Container(
+            child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(productName,
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        Text(
+                          '\$120.00 ',
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: kTextColorP,
+                            decoration: TextDecoration.lineThrough,
+                          ),
                         ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 5),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
-                          Text('\$120.00 ', 
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: kTextColorP,
-                              decoration: TextDecoration.lineThrough,
-                              
-                            ),
-                          ),
-                          Text('\$80.00 MX', 
-                            style: TextStyle(
+                        Text(
+                          '\$80.00 MX',
+                          style: TextStyle(
                               color: kPrimaryColor,
-                              fontWeight: FontWeight.bold
-                            ),
-                          ),
-
-                        ],
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Expanded(
-                          child: Container(
-                            height: 30,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Container(
-                              padding: const EdgeInsets.only(top: 10),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: const[
-                                  Icon(Icons.remove, size: 18, color: kTextColorP),
-                                  SizedBox(width: 10,),
-                                  Text('1', style: TextStyle(fontSize: 18),),
-                                  SizedBox(width: 10,),
-                                  Icon(Icons.add, size: 18, color: kTextColorP),
-                                ],
-                              ),
-                            ),
-                          )
+                              fontWeight: FontWeight.bold),
                         ),
                       ],
-                    )
-                  ],
-                ),
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Expanded(
+                          child: Container(
+                        height: 30,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Container(
+                          padding: const EdgeInsets.only(top: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: const [
+                              Icon(Icons.remove, size: 18, color: kTextColorP),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text(
+                                '1',
+                                style: TextStyle(fontSize: 18),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Icon(Icons.add, size: 18, color: kTextColorP),
+                            ],
+                          ),
+                        ),
+                      )),
+                    ],
+                  )
+                ],
               ),
-            )
-          ),
+            ),
+          )),
         ],
       ),
     );
