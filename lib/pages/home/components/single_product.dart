@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
 
-class singalProducts extends StatelessWidget {
-  const singalProducts({
+class SingalProducts extends StatelessWidget {
+  const SingalProducts({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       height: 250,
       width: 160,
       decoration: BoxDecoration(
@@ -43,25 +43,28 @@ class singalProducts extends StatelessWidget {
                           fontWeight: FontWeight.bold
                         ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
-                        Text('\$120.00 ', 
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: kTextColorP,
-                            decoration: TextDecoration.lineThrough,
-                            fontWeight: FontWeight.bold
+                    Padding(
+                      padding: const EdgeInsets.only(top: 5),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: const [
+                          Text('\$120.00 ', 
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: kTextColorP,
+                              decoration: TextDecoration.lineThrough,
+                              
+                            ),
                           ),
-                        ),
-                        Text('\$80.00 MX', 
-                          style: TextStyle(
-                            color: kPrimaryColor,
-                            fontWeight: FontWeight.bold
+                          Text('\$80.00 MX', 
+                            style: TextStyle(
+                              color: kPrimaryColor,
+                              fontWeight: FontWeight.bold
+                            ),
                           ),
-                        ),
 
-                      ],
+                        ],
+                      ),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
