@@ -23,6 +23,7 @@ class DrawerApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
+        width: MediaQuery.of(context).size.width,
         color: kTerciaryColor,
         child: ListView(
           children: [
@@ -35,6 +36,7 @@ class DrawerApp extends StatelessWidget {
                     child: CircleAvatar(
                       radius: 40,
                       backgroundColor: Colors.white,
+
                     ),
                   ),
                   const SizedBox(

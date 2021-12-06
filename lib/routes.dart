@@ -1,5 +1,5 @@
+import 'package:devyapp/pages/product_overview/product_overview.dart';
 import 'package:flutter/widgets.dart';
-
 import 'pages/sign_in/sign_in_screen.dart';
 import 'pages/splash/splash_screen.dart';
 import 'pages/home/home_screen.dart';
@@ -21,6 +21,7 @@ final Map<String, WidgetBuilder> routes = {
   SplashScreen.routeName: (context) => const SplashScreen(),
   SignInScreen.routeName: (context) => const SignInScreen(),
   HomeScreen.routeName: (context) => const HomeScreen(),
+  ProductOverview.routeName: (context) => ProductOverview(),
   // ForgotPasswordScreen.routeName: (context) => ForgotPasswordScreen(),
   // LoginSuccessScreen.routeName: (context) => LoginSuccessScreen(),
   // SignUpScreen.routeName: (context) => SignUpScreen(),

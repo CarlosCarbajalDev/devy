@@ -1,8 +1,11 @@
+import 'package:devyapp/pages/product_overview/product_overview.dart';
+
 import 'single_product.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
 
+/* home_screen */
 class BodyHome extends StatelessWidget {
   const BodyHome({Key? key}) : super(key: key);
 
@@ -28,24 +31,37 @@ class BodyHome extends StatelessWidget {
           child: Row(
             children: [
               SingalProducts(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ProductOverview()));
+                  },
+                  productImage:
+                      "https://cf.shopee.com.mx/file/733ab2e1a584c277ea92c2e5fe4ef1dd",
+                  productName: "Calcetassssaaa",
+                ),
+              SingalProducts(
                 onTap: () {
-                  //Ruta
+                  Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ProductOverview()));
+                },
+                productImage:
+                    "https://cf.shopee.com.mx/file/b7b5ca11349cec235b6868cf5d68cf0d",
+                productName: "Tiness",
+              ),
+              SingalProducts(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ProductOverview()));
                 },
                 productImage:
                     "https://cf.shopee.com.mx/file/733ab2e1a584c277ea92c2e5fe4ef1dd",
                 productName: "Calcetas",
               ),
               SingalProducts(
-                productImage:
-                    "https://cf.shopee.com.mx/file/b7b5ca11349cec235b6868cf5d68cf0d",
-                productName: "Tines",
-              ),
-              SingalProducts(
-                productImage:
-                    "https://cf.shopee.com.mx/file/733ab2e1a584c277ea92c2e5fe4ef1dd",
-                productName: "Calcetas",
-              ),
-              SingalProducts(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ProductOverview()));
+                },
                 productImage:
                     "https://cf.shopee.com.mx/file/733ab2e1a584c277ea92c2e5fe4ef1dd",
                 productName: "Calcetas",
@@ -62,45 +78,61 @@ class BodyHome extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Text('Pulseras'),
-                Text(
-                  'Ver todas',
-                  style: TextStyle(color: kTextColorP),
-                ),
-              ],
-            ),
+          padding: const EdgeInsets.symmetric(horizontal: 5),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              Text('Pulseras'),
+              Text(
+                'Ver todas',
+                style: TextStyle(color: kTextColorP),
+              ),
+            ],
           ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                SingalProducts(
-                  productImage:
-                      "https://cf.shopee.com.mx/file/733ab2e1a584c277ea92c2e5fe4ef1dd",
-                  productName: "Calcetas",
-                ),
-                SingalProducts(
-                  productImage:
-                      "https://cf.shopee.com.mx/file/733ab2e1a584c277ea92c2e5fe4ef1dd",
-                  productName: "Calcetas",
-                ),
-                SingalProducts(
-                  productImage:
-                      "https://cf.shopee.com.mx/file/733ab2e1a584c277ea92c2e5fe4ef1dd",
-                  productName: "Calcetas",
-                ),
-                SingalProducts(
-                  productImage:
-                      "https://cf.shopee.com.mx/file/733ab2e1a584c277ea92c2e5fe4ef1dd",
-                  productName: "Calcetas",
-                ),
-              ],
-            ),
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              SingalProducts(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ProductOverview()));
+                },
+                productImage:
+                    "https://cf.shopee.com.mx/file/733ab2e1a584c277ea92c2e5fe4ef1dd",
+                productName: "Calcetas",
+              ),
+              SingalProducts(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ProductOverview()));
+                },
+                productImage:
+                    "https://cf.shopee.com.mx/file/733ab2e1a584c277ea92c2e5fe4ef1dd",
+                productName: "Calcetas",
+              ),
+              SingalProducts(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ProductOverview()));
+                },
+                productImage:
+                    "https://cf.shopee.com.mx/file/733ab2e1a584c277ea92c2e5fe4ef1dd",
+                productName: "Calcetas",
+              ),
+              SingalProducts(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ProductOverview()));
+                },
+                productImage:
+                    "https://cf.shopee.com.mx/file/733ab2e1a584c277ea92c2e5fe4ef1dd",
+                productName: "Calcetas",
+              ),
+            ],
           ),
+        ),
       ],
     );
   }
@@ -178,11 +210,10 @@ class BodyHome extends StatelessWidget {
 
           //Cases scroll left to right
           _buildCasesProduct(context),
-          
 
           //Accesorios scroll left to right
           _buildAccesoriesProduct(context),
-           //Termina 2 row
+          //Termina 2 row
         ]),
       ),
     );
