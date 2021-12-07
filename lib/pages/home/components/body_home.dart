@@ -33,37 +33,48 @@ class BodyHome extends StatelessWidget {
               SingalProducts(
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ProductOverview()));
+                        builder: (context) => ProductOverview(
+                          productImage: "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
+                          productName: "Funda Iphone 12",
+                        )));
                   },
-                  productImage:
-                      "https://cf.shopee.com.mx/file/733ab2e1a584c277ea92c2e5fe4ef1dd",
+                  productImage:"http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
                   productName: "Calcetassssaaa",
                 ),
               SingalProducts(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ProductOverview()));
+                        builder: (context) => ProductOverview(
+                          productImage: "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
+                          productName: "Funda Iphone 12",
+                        )));
                 },
                 productImage:
-                    "https://cf.shopee.com.mx/file/b7b5ca11349cec235b6868cf5d68cf0d",
+                    "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
                 productName: "Tiness",
               ),
               SingalProducts(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ProductOverview()));
+                        builder: (context) => ProductOverview(
+                          productImage: "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
+                          productName: "Funda Iphone 12",
+                        )));
                 },
                 productImage:
-                    "https://cf.shopee.com.mx/file/733ab2e1a584c277ea92c2e5fe4ef1dd",
+                    "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
                 productName: "Calcetas",
               ),
               SingalProducts(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ProductOverview()));
+                        builder: (context) => ProductOverview(
+                          productImage: "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
+                          productName: "Funda Iphone 12",
+                        )));
                 },
                 productImage:
-                    "https://cf.shopee.com.mx/file/733ab2e1a584c277ea92c2e5fe4ef1dd",
+                    "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
                 productName: "Calcetas",
               ),
             ],
@@ -97,37 +108,49 @@ class BodyHome extends StatelessWidget {
               SingalProducts(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ProductOverview()));
+                        builder: (context) => ProductOverview(
+                          productImage: "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
+                          productName: "Funda Iphone 12",
+                        )));
                 },
                 productImage:
-                    "https://cf.shopee.com.mx/file/733ab2e1a584c277ea92c2e5fe4ef1dd",
+                    "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
                 productName: "Calcetas",
               ),
               SingalProducts(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ProductOverview()));
+                        builder: (context) => ProductOverview(
+                          productImage: "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
+                          productName: "Funda Iphone 12",
+                        )));
                 },
                 productImage:
-                    "https://cf.shopee.com.mx/file/733ab2e1a584c277ea92c2e5fe4ef1dd",
+                    "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
                 productName: "Calcetas",
               ),
               SingalProducts(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ProductOverview()));
+                        builder: (context) => ProductOverview(
+                          productImage: "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
+                          productName: "Funda Iphone 12",
+                        )));
                 },
                 productImage:
-                    "https://cf.shopee.com.mx/file/733ab2e1a584c277ea92c2e5fe4ef1dd",
+                    "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
                 productName: "Calcetas",
               ),
               SingalProducts(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ProductOverview()));
+                        builder: (context) => ProductOverview(
+                          productImage: "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
+                          productName: "Funda Iphone 12",
+                        )));
                 },
                 productImage:
-                    "https://cf.shopee.com.mx/file/733ab2e1a584c277ea92c2e5fe4ef1dd",
+                    "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
                 productName: "Calcetas",
               ),
             ],

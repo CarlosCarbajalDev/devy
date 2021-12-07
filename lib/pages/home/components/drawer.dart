@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
+import '../../my_profile/my_profile.dart';
+import '../home_screen.dart';
 
 class DrawerApp extends StatelessWidget {
-  Widget listTile({required IconData icon, required String title}) {
+  Widget listTile({required IconData icon, required String title, Function()? onTap}) {
     return ListTile(
+      onTap: onTap,
       leading: Icon(
         icon,
         size: 32,
@@ -72,11 +75,15 @@ class DrawerApp extends StatelessWidget {
                 ],
               ),
             ),
-            listTile(icon: Icons.home_outlined, title: "Inicio"),
+            listTile(icon: Icons.home_outlined, title: "Inicio", onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) =>  const HomeScreen()));
+            }),
             listTile(
                 icon: Icons.shopping_cart_outlined,
-                title: "Carrito de Compras"),
-            listTile(icon: Icons.person_outlined, title: "Mi perfil"),
+                title: "Carrito de Compras",),
+            listTile(icon: Icons.person_outlined, title: "Mi perfil", onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) =>  const MyProfile()));
+            },),
             listTile(
                 icon: Icons.notifications_outlined, title: "Notificaciones"),
             listTile(

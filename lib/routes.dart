@@ -21,7 +21,10 @@ final Map<String, WidgetBuilder> routes = {
   SplashScreen.routeName: (context) => const SplashScreen(),
   SignInScreen.routeName: (context) => const SignInScreen(),
   HomeScreen.routeName: (context) => const HomeScreen(),
-  ProductOverview.routeName: (context) => ProductOverview(),
+  ProductOverview.routeName: (context) => ProductOverview(
+productImage: "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
+                          productName: "Funda Iphone 12",
+  ),
   // ForgotPasswordScreen.routeName: (context) => ForgotPasswordScreen(),
   // LoginSuccessScreen.routeName: (context) => LoginSuccessScreen(),
   // SignUpScreen.routeName: (context) => SignUpScreen(),
