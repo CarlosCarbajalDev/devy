@@ -26,14 +26,7 @@ class Body extends StatelessWidget {
               children: [
                 Container(
                   height: 100,
-                  decoration: const BoxDecoration(
-                    color: kTerciaryColor,
-                    image: DecorationImage(
-                      image: NetworkImage("https://images.unsplash.com/photo-1638977937549-15b0cd182636?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  
+                  color: kTerciaryColor,
                 ),
                 Container(
                   height: MediaQuery.of(context).size.height - 185,
