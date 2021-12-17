@@ -1,4 +1,4 @@
-import 'package:devyapp/constants.dart';
+/*import 'package:devyapp/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -107,4 +107,4 @@ class SearchItem extends StatelessWidget {
       ),
     );
   }
-}
+}*/

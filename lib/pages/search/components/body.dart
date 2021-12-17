@@ -6,7 +6,7 @@ import 'package:flutter/widgets.dart';
 
 import '../../../constants.dart';
 import '../../../enums.dart';
-import 'search_item.dart';
+import '../../../widgets/single_item.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
@@ -38,9 +38,16 @@ class Body extends StatelessWidget {
         const SizedBox(
             height: 10,
         ),
-        const SearchItem(),
-        const SearchItem(),
-        const SearchItem(),
+        SingleItem(
+          isBool: false,
+        ),
+        SingleItem(
+          isBool: false,
+        ),
+        SingleItem(
+          isBool: false,
+        ),
+
       ],
     );
   }

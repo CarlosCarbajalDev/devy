@@ -1,3 +1,4 @@
+import 'package:devyapp/pages/review_cart/search.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
@@ -80,12 +81,21 @@ class DrawerApp extends StatelessWidget {
             }),
             listTile(
                 icon: Icons.shopping_cart_outlined,
-                title: "Carrito de Compras",),
-            listTile(icon: Icons.person_outlined, title: "Mi perfil", onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) =>  const MyProfile()));
-            },),
+                title: "Carrito de Compras",
+                onTap: ()=> {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) =>  const ReviewCart()))
+                }),
             listTile(
-                icon: Icons.notifications_outlined, title: "Notificaciones"),
+              icon: Icons.person_outlined, 
+              title: "Mi perfil", 
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) =>  const MyProfile()));
+              },
+            ),
+            listTile(
+                icon: Icons.notifications_outlined, 
+                title: "Notificaciones"
+              ),
             listTile(
                 icon: Icons.star_outline, title: "Calificaciones y Reseñas"),
             listTile(icon: Icons.favorite_outline, title: "Lista de Deseos"),
