@@ -4,19 +4,26 @@ import 'package:flutter/material.dart';
 
 class ProductProvider with ChangeNotifier {
   ProductModel? productModel;
+
+  productModels(QueryDocumentSnapshot element) {
+    productModel = ProductModel(
+      productImage: element.get("productImage"),
+      productName: element.get("productName"),
+      productPrice: element.get("productPrice"),
+      productNormalPrice: element.get("productNormalPrice"),
+    );
+  }
+
+  /* CASES */
   List<ProductModel> caseProduct = [];
 
-  getProductData() async {
+  getCasesProductData() async {
     List<ProductModel> newList = [];
     QuerySnapshot data =
         await FirebaseFirestore.instance.collection("CasesProduct").get();
 
     data.docs.forEach((element) {
-      productModel = ProductModel(
-        productImage: element.get("productImage"),
-        productName: element.get("productName"),
-        productPrice: element.get("productPrice"),
-      );
+      productModels(element);
       newList.add(productModel!);
       print(element.data());
     });
@@ -24,7 +31,52 @@ class ProductProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  List<ProductModel>get getProductDataList {
+  List<ProductModel> get getCasesProductDataList {
     return caseProduct;
+  }
+
+/* FASHION */
+
+  List<ProductModel> fashionProduct = [];
+
+  getFashionProductData() async {
+    List<ProductModel> newList = [];
+    QuerySnapshot data =
+        await FirebaseFirestore.instance.collection("Fashion").get();
+
+    data.docs.forEach((element) {
+      productModels(element);
+      newList.add(productModel!);
+      print(element.data());
+    });
+    fashionProduct = newList;
+    notifyListeners();
+  }
+
+  List<ProductModel> get getFashionProductDataList {
+    return fashionProduct;
+  }
+
+/* HOME */
+
+  List<ProductModel> homeProduct = [];
+
+  getHomeProductData() async {
+    List<ProductModel> newList = [];
+    QuerySnapshot data = await FirebaseFirestore.instance
+        .collection("HomeandkitchenProduct")
+        .get();
+
+    data.docs.forEach((element) {
+      productModels(element);
+      newList.add(productModel!);
+      print(element.data());
+    });
+    homeProduct = newList;
+    notifyListeners();
+  }
+
+  List<ProductModel> get getHomeProductDataList {
+    return homeProduct;
   }
 }

@@ -8,13 +8,15 @@ class SingalProducts extends StatelessWidget {
   final String productImage;
   final String productName;
   final int? productPrice;
+  final int? productNormalPrice;
   final Function() onTap;
 
   SingalProducts(
       {required this.productImage,
       required this.productName,
       required this.onTap, 
-      this.productPrice});
+      this.productPrice,
+      this.productNormalPrice});
 
   @override
   Widget build(BuildContext context) {
@@ -71,9 +73,9 @@ class SingalProducts extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Text(
-                              '\$120.00 ',
-                              style: TextStyle(
+                            Text(
+                              '\$$productNormalPrice ',
+                              style: const TextStyle(
                                 fontSize: 14,
                                 color: kTextColorP,
                                 decoration: TextDecoration.lineThrough,

@@ -4,7 +4,7 @@ class ProductModel {
   String? productName;
   String? productImage;
   int? productPrice;
+  int? productNormalPrice;
 
-  ProductModel({this.productName, this.productImage, this.productPrice});
-  
+  ProductModel({this.productName, this.productImage, this.productPrice, required this.productNormalPrice});
 }

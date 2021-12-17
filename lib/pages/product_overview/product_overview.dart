@@ -10,13 +10,15 @@ class ProductOverview extends StatefulWidget {
   final String productName;
   final String productImage;
   final int? productPrice;
+  final int? productNormalPrice;
 
   static String routeName = "/product_overview";
   ProductOverview(
       {Key? key,
       required this.productName,
       required this.productImage,
-      this.productPrice})
+      this.productPrice,
+      this.productNormalPrice})
       : super(key: key);
 
   @override
@@ -77,7 +79,7 @@ class _ProductOverviewState extends State<ProductOverview> {
                   children: [
                     ListTile(
                       title: Text(widget.productName),
-                      subtitle: const Text("\$80.00"),
+                      subtitle: Text("\$${widget.productPrice}"),
                     ),
                     Container(
                       height: 300,

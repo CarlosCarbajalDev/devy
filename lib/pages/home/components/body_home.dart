@@ -39,22 +39,23 @@ class _BodyHomeState extends State<BodyHome> {
             scrollDirection: Axis.horizontal,
             child: Row(
                 children:
-                    productProvider.getProductDataList.map((caseProductData) {
-              return SingalProducts(
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => ProductOverview(
-                            productImage:
-                                caseProductData.productImage!,
-                            productName: caseProductData.productName!,
-                            productPrice: caseProductData.productPrice,
-                          )));
-                },
-                productImage: caseProductData.productImage!,
-                productName: caseProductData.productName!,
-                productPrice: caseProductData.productPrice,
-              );
-            }).toList()
+                    productProvider.getCasesProductDataList.map((caseProductData) {
+                      return SingalProducts(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => ProductOverview(
+                                    productImage:
+                                        caseProductData.productImage!,
+                                    productName: caseProductData.productName!,
+                                    productPrice: caseProductData.productPrice,
+                                  )));
+                        },
+                        productImage: caseProductData.productImage!,
+                        productName: caseProductData.productName!,
+                        productPrice: caseProductData.productPrice,
+                        productNormalPrice: caseProductData.productNormalPrice,
+                      );
+                    }).toList()
                 /* children: [
               SingalProducts(
                 onTap: () {
@@ -78,14 +79,14 @@ class _BodyHomeState extends State<BodyHome> {
 
   Widget _buildAccesoriesProduct(context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 5),
+          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
-              Text('Pulseras'),
+              Text('Ropa'),
               Text(
                 'Ver todas',
                 style: TextStyle(color: kTextColorP),
@@ -94,9 +95,27 @@ class _BodyHomeState extends State<BodyHome> {
           ),
         ),
         SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
+            scrollDirection: Axis.horizontal,
+            child: Row(
+                children:
+                    productProvider. getFashionProductDataList.map((fashionProductData) {
+                      return SingalProducts(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => ProductOverview(
+                                    productImage:
+                                        fashionProductData.productImage!,
+                                    productName: fashionProductData.productName!,
+                                    productPrice: fashionProductData.productPrice,
+                                  )));
+                        },
+                        productImage: fashionProductData.productImage!,
+                        productName: fashionProductData.productName!,
+                        productPrice: fashionProductData.productPrice,
+                        productNormalPrice: fashionProductData.productNormalPrice,
+                      );
+                    }).toList()
+                /* children: [
               SingalProducts(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
@@ -108,58 +127,82 @@ class _BodyHomeState extends State<BodyHome> {
                 },
                 productImage:
                     "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
-                productName: "Calcetas",
+                productName: "Calcetassssaaa",
               ),
-              SingalProducts(
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => ProductOverview(
-                            productImage:
-                                "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
-                            productName: "Funda Iphone 12",
-                          )));
-                },
-                productImage:
-                    "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
-                productName: "Calcetas",
-              ),
-              SingalProducts(
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => ProductOverview(
-                            productImage:
-                                "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
-                            productName: "Funda Iphone 12",
-                          )));
-                },
-                productImage:
-                    "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
-                productName: "Calcetas",
-              ),
-              SingalProducts(
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => ProductOverview(
-                            productImage:
-                                "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
-                            productName: "Funda Iphone 12",
-                          )));
-                },
-                productImage:
-                    "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
-                productName: "Calcetas",
-              ),
-            ],
-          ),
-        ),
+              
+            ], */
+                )),
       ],
     );
   }
 
+
+Widget _buildHomeProduct(context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              Text('Hogar y Limpieza'),
+              Text(
+                'Ver todas',
+                style: TextStyle(color: kTextColorP),
+              ),
+            ],
+          ),
+        ),
+        SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+                children:
+                    productProvider. getHomeProductDataList.map((homeProductData) {
+                      return SingalProducts(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => ProductOverview(
+                                    productImage:
+                                        homeProductData.productImage!,
+                                    productName: homeProductData.productName!,
+                                    productPrice: homeProductData.productPrice,
+                                  )));
+                        },
+                        productImage: homeProductData.productImage!,
+                        productName: homeProductData.productName!,
+                        productPrice: homeProductData.productPrice,
+                        productNormalPrice: homeProductData.productNormalPrice,
+                      );
+                    }).toList()
+                /* children: [
+              SingalProducts(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => ProductOverview(
+                            productImage:
+                                "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
+                            productName: "Funda Iphone 12",
+                          )));
+                },
+                productImage:
+                    "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
+                productName: "Calcetassssaaa",
+              ),
+              
+            ], */
+                )),
+      ],
+    );
+  }
+
+
   @override
   void initState() {
     ProductProvider productProvider = Provider.of(context, listen: false);
-    productProvider.getProductData();
+    productProvider.getCasesProductData();
+    productProvider.getFashionProductData();
+    productProvider.getHomeProductData();
     super.initState();
   }
 
@@ -240,6 +283,8 @@ class _BodyHomeState extends State<BodyHome> {
 
           //Accesorios scroll left to right
           _buildAccesoriesProduct(context),
+
+          _buildHomeProduct(context),
           //Termina 2 row
         ]),
       ),
