@@ -1,5 +1,6 @@
 import 'package:devyapp/pages/home/components/body_home.dart';
 import 'package:devyapp/pages/home/components/drawer.dart';
+import 'package:devyapp/pages/search/search.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -20,21 +21,32 @@ class Body extends StatelessWidget {
         size: 32,
         color: kPrimaryColorWhite,
       ),
-      title: Text(title, style: const TextStyle(color: kPrimaryColorWhite),),
+      title: Text(
+        title,
+        style: const TextStyle(color: kPrimaryColorWhite),
+      ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    
-    const navigatorIcons = [
+    var navigatorIcons = [
       /* btnBusqueda */
       CircleAvatar(
         radius: 17,
         backgroundColor: kPrimaryColorWhite,
-        child: Icon(Icons.search, color: kTerciaryColor),
+        child: Padding(
+          padding: const EdgeInsets.only(right: 10),
+          child: IconButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const Search(),
+                ));
+              },
+              icon: const Icon(Icons.search, color: kTerciaryColor)),
+        ),
       ),
-      Padding(
+      const Padding(
         padding: EdgeInsets.symmetric(horizontal: 15),
         child: CircleAvatar(
           radius: 17,
@@ -46,7 +58,6 @@ class Body extends StatelessWidget {
         ),
       )
     ];
-
 
     return Scaffold(
       appBar: AppBar(
