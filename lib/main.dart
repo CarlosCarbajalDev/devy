@@ -1,5 +1,6 @@
 // import 'package:devy/screens/profile/profile_screen.dart';
 
+import 'package:devyapp/providers/product_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -9,13 +10,16 @@ import 'pages/splash/splash_screen.dart';
 import 'routes.dart';
 import 'theme.dart';
 
+import 'package:provider/provider.dart';
+
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   SystemChrome.setPreferredOrientations(
           [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown])
       .whenComplete(() {
-    runApp(MyApp());
+    runApp( MyApp());
   });
 }
 
@@ -40,15 +44,18 @@ class MyApp extends StatelessWidget {
       firstWidget = const SplashScreen();
     }
 
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: theme(),
-      // home: SplashScreen(),
-      // We use routeName so that we dont need to remember the name
-      /* initialRoute: SplashScreen.routeName, */
-      home: firstWidget,
-      routes: routes,
+    return ChangeNotifierProvider<ProductProvider>(
+      create: (context) => ProductProvider(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: theme(),
+        // home: SplashScreen(),
+        // We use routeName so that we dont need to remember the name
+        /* initialRoute: SplashScreen.routeName, */
+        home: firstWidget,
+        routes: routes,
+      ),
     );
   }
 }

@@ -1,4 +1,7 @@
 import 'package:devyapp/pages/product_overview/product_overview.dart';
+import 'package:devyapp/providers/product_provider.dart';
+
+import 'package:provider/provider.dart';
 
 import 'single_product.dart';
 import 'package:flutter/material.dart';
@@ -6,9 +9,15 @@ import 'package:flutter/material.dart';
 import '../../../constants.dart';
 
 /* home_screen */
-class BodyHome extends StatelessWidget {
+class BodyHome extends StatefulWidget {
   const BodyHome({Key? key}) : super(key: key);
 
+  @override
+  State<BodyHome> createState() => _BodyHomeState();
+}
+
+class _BodyHomeState extends State<BodyHome> {
+  late ProductProvider productProvider;
   Widget _buildCasesProduct(context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,59 +36,42 @@ class BodyHome extends StatelessWidget {
           ),
         ),
         SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              SingalProducts(
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ProductOverview(
-                          productImage: "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
-                          productName: "Funda Iphone 12",
-                        )));
-                  },
-                  productImage:"http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
-                  productName: "Calcetassssaaa",
-                ),
+            scrollDirection: Axis.horizontal,
+            child: Row(
+                children:
+                    productProvider.getProductDataList.map((caseProductData) {
+              return SingalProducts(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => ProductOverview(
+                            productImage:
+                                caseProductData.productImage!,
+                            productName: caseProductData.productName!,
+                            productPrice: caseProductData.productPrice,
+                          )));
+                },
+                productImage: caseProductData.productImage!,
+                productName: caseProductData.productName!,
+                productPrice: caseProductData.productPrice,
+              );
+            }).toList()
+                /* children: [
               SingalProducts(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ProductOverview(
-                          productImage: "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
-                          productName: "Funda Iphone 12",
-                        )));
+                      builder: (context) => ProductOverview(
+                            productImage:
+                                "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
+                            productName: "Funda Iphone 12",
+                          )));
                 },
                 productImage:
                     "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
-                productName: "Tiness",
+                productName: "Calcetassssaaa",
               ),
-              SingalProducts(
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ProductOverview(
-                          productImage: "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
-                          productName: "Funda Iphone 12",
-                        )));
-                },
-                productImage:
-                    "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
-                productName: "Calcetas",
-              ),
-              SingalProducts(
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ProductOverview(
-                          productImage: "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
-                          productName: "Funda Iphone 12",
-                        )));
-                },
-                productImage:
-                    "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
-                productName: "Calcetas",
-              ),
-            ],
-          ),
-        ),
+              
+            ], */
+                )),
       ],
     );
   }
@@ -108,10 +100,11 @@ class BodyHome extends StatelessWidget {
               SingalProducts(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ProductOverview(
-                          productImage: "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
-                          productName: "Funda Iphone 12",
-                        )));
+                      builder: (context) => ProductOverview(
+                            productImage:
+                                "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
+                            productName: "Funda Iphone 12",
+                          )));
                 },
                 productImage:
                     "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
@@ -120,10 +113,11 @@ class BodyHome extends StatelessWidget {
               SingalProducts(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ProductOverview(
-                          productImage: "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
-                          productName: "Funda Iphone 12",
-                        )));
+                      builder: (context) => ProductOverview(
+                            productImage:
+                                "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
+                            productName: "Funda Iphone 12",
+                          )));
                 },
                 productImage:
                     "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
@@ -132,10 +126,11 @@ class BodyHome extends StatelessWidget {
               SingalProducts(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ProductOverview(
-                          productImage: "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
-                          productName: "Funda Iphone 12",
-                        )));
+                      builder: (context) => ProductOverview(
+                            productImage:
+                                "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
+                            productName: "Funda Iphone 12",
+                          )));
                 },
                 productImage:
                     "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
@@ -144,10 +139,11 @@ class BodyHome extends StatelessWidget {
               SingalProducts(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ProductOverview(
-                          productImage: "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
-                          productName: "Funda Iphone 12",
-                        )));
+                      builder: (context) => ProductOverview(
+                            productImage:
+                                "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
+                            productName: "Funda Iphone 12",
+                          )));
                 },
                 productImage:
                     "http://cdn.tmobile.com/content/dam/t-mobile/en-p/accessories/194252168936/194252168936-frontimage.png",
@@ -161,7 +157,15 @@ class BodyHome extends StatelessWidget {
   }
 
   @override
+  void initState() {
+    ProductProvider productProvider = Provider.of(context, listen: false);
+    productProvider.getProductData();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    productProvider = Provider.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       child: SingleChildScrollView(

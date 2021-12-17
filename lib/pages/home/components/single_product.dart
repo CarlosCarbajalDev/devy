@@ -7,12 +7,14 @@ import '../../../constants.dart';
 class SingalProducts extends StatelessWidget {
   final String productImage;
   final String productName;
+  final int? productPrice;
   final Function() onTap;
 
   SingalProducts(
       {required this.productImage,
       required this.productName,
-      required this.onTap});
+      required this.onTap, 
+      this.productPrice});
 
   @override
   Widget build(BuildContext context) {
@@ -68,8 +70,8 @@ class SingalProducts extends StatelessWidget {
                         padding: const EdgeInsets.only(top: 5),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Text(
+                          children: [
+                            const Text(
                               '\$120.00 ',
                               style: TextStyle(
                                 fontSize: 14,
@@ -78,8 +80,8 @@ class SingalProducts extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              '\$80.00 MX',
-                              style: TextStyle(
+                              '\$$productPrice MXN', 
+                              style: const TextStyle(
                                   color: kPrimaryColor,
                                   fontWeight: FontWeight.bold),
                             ),

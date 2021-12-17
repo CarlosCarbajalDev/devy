@@ -9,10 +9,15 @@ enum singinCharacter { fill, outline }
 class ProductOverview extends StatefulWidget {
   final String productName;
   final String productImage;
-  
+  final int? productPrice;
 
   static String routeName = "/product_overview";
-  ProductOverview({Key? key, required this.productName, required this.productImage}) : super(key: key);
+  ProductOverview(
+      {Key? key,
+      required this.productName,
+      required this.productImage,
+      this.productPrice})
+      : super(key: key);
 
   @override
   _ProductOverviewState createState() => _ProductOverviewState();
@@ -112,7 +117,7 @@ class _ProductOverviewState extends State<ProductOverview> {
                               )
                             ],
                           ),
-                          const Text("\$50.00"),
+                          Text("\$${widget.productPrice}"),
                           Container(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 30, vertical: 10),
