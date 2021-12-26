@@ -107,11 +107,23 @@ class _BodyState extends State<Body> {
           padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text('Ropa'),
-              Text(
-                'Ver todas',
-                style: TextStyle(color: kTextColorP),
+            children: [
+              const Text('Ropa'),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => Search(
+                        search: productProvider.getFashionProductDataList,
+                        
+                      ),
+                    ),
+                  );
+                },
+                child: const Text(
+                  'Ver todas',
+                  style: TextStyle(color: kTextColorP),
+                ),
               ),
             ],
           ),
@@ -167,11 +179,23 @@ class _BodyState extends State<Body> {
           padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text('Hogar y Limpieza'),
-              Text(
-                'Ver todas',
-                style: TextStyle(color: kTextColorP),
+            children: [
+              const Text('Hogar y Limpieza'),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => Search(
+                        search: productProvider.getFashionProductDataList,
+                        
+                      ),
+                    ),
+                  );
+                },
+                child: const Text(
+                  'Ver todas',
+                  style: TextStyle(color: kTextColorP),
+                ),
               ),
             ],
           ),
@@ -261,7 +285,9 @@ class _BodyState extends State<Body> {
           child: IconButton(
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const Search(),
+                  builder: (context) => Search(
+                    search: productProvider.gerAllProductSearch,
+                  ),
                 ));
               },
               icon: const Icon(Icons.search, color: kTerciaryColor)),

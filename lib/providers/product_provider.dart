@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 class ProductProvider with ChangeNotifier {
   ProductModel? productModel;
 
+  List<ProductModel> search = [];
+
   productModels(QueryDocumentSnapshot element) {
     productModel = ProductModel(
       productImage: element.get("productImage"),
@@ -78,5 +80,10 @@ class ProductProvider with ChangeNotifier {
 
   List<ProductModel> get getHomeProductDataList {
     return homeProduct;
+  }
+
+
+  List<ProductModel> get gerAllProductSearch {
+    return search;
   }
 }
