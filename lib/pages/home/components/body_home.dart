@@ -17,7 +17,7 @@ class BodyHome extends StatefulWidget {
 }
 
 class _BodyHomeState extends State<BodyHome> {
-  late ProductProvider productProvider;
+  late ProductProvider productProvider; //Done
   Widget _buildCasesProduct(context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -137,7 +137,7 @@ class _BodyHomeState extends State<BodyHome> {
   }
 
 
-Widget _buildHomeProduct(context) {
+  Widget _buildHomeProduct(context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -196,6 +196,7 @@ Widget _buildHomeProduct(context) {
     );
   }
 
+  //YA
 
   @override
   void initState() {
@@ -204,7 +205,7 @@ Widget _buildHomeProduct(context) {
     productProvider.getFashionProductData();
     productProvider.getHomeProductData();
     super.initState();
-  }
+  }//YA
 
   @override
   Widget build(BuildContext context) {
