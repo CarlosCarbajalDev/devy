@@ -14,6 +14,8 @@ class ProductProvider with ChangeNotifier {
       productPrice: element.get("productPrice"),
       productNormalPrice: element.get("productNormalPrice"),
     );
+
+    search.add(productModel!);
   }
 
   /* CASES */

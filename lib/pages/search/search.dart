@@ -14,13 +14,23 @@ class Search extends StatefulWidget {
 
   @override
   State<Search> createState() => _SearchState();
-  
 }
 
 class _SearchState extends State<Search> {
+  String query = "";
+
+  searchItem(String query) {
+    List<ProductModel> searchCase = widget.search!.where((element) {
+      return element.productName!.toLowerCase().contains(query);
+    }).toList();
+    return searchCase;
+  }
+
   Character _character = Character.alphabetically;
   @override
   Widget build(BuildContext context) {
+    List<ProductModel> _searchItem = searchItem(query);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kTerciaryColor,
@@ -28,6 +38,7 @@ class _SearchState extends State<Search> {
         title: const Text('Buscar productos'),
       ),
       body: ListView(
+        //probablemente necesitare un modal para enseñar la forma en que deben ser mostrados los items, lowToHigh,etc 18,
         children: [
           const ListTile(
             title: Text("Productos"),
@@ -36,6 +47,12 @@ class _SearchState extends State<Search> {
             margin: const EdgeInsets.symmetric(horizontal: 20),
             height: 52,
             child: TextField(
+              onChanged: (value) {
+                print(value.toLowerCase());
+                setState(() {
+                  query = value;
+                });
+              },
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30),
@@ -52,7 +69,7 @@ class _SearchState extends State<Search> {
             height: 10,
           ),
           Column(
-            children: widget.search!.map((data) {
+            children: _searchItem.map((data) {
               return SingleItem(
                 isBool: false,
                 productImage: data.productImage,
