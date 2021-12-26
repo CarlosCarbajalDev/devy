@@ -16,15 +16,12 @@ class Body extends StatelessWidget {
           height: 10,
         ),
         SingleItem(
+          productImage: "https://res.cloudinary.com/ds2uueuk2/image/upload/v1639731631/WhatsApp_Image_2021-11-21_at_5.02.32_PM_37_rcssdo.jpg",
+          productName: "Funda forma manchas",
+          productNormalPrice: 100,
+          productPrice: 80,
         ),
-        SingleItem(
-        ),
-        SingleItem(
-        ),
-        SingleItem(
-        ),
-        SingleItem(
-        ),
+        
 
         const SizedBox(
           height: 10,
