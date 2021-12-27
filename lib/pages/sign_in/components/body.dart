@@ -1,12 +1,12 @@
-
-
 import 'package:devyapp/pages/home/home_screen.dart';
+import 'package:devyapp/providers/user_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 /* import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart'; */
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:provider/provider.dart';
 import 'sign_form.dart';
 import '../../../size_config.dart';
 import '../../../widgets/no_account_text.dart';
@@ -20,6 +20,7 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  late UserProvider userProvider;
   Future<UserCredential> signInWithGoogle() async {
     Firebase user;
     // Trigger the authentication flow
@@ -35,12 +36,21 @@ class _BodyState extends State<Body> {
       idToken: googleAuth?.idToken,
     );
 
+    final userCredential = await FirebaseAuth.instance.signInWithCredential(credential);
+    
+    userProvider.addUserData(
+        currentUser: userCredential.user!,
+        userEmail: userCredential.user!.email!,
+        userImage: userCredential.user!.photoURL!,
+        userName: userCredential.user!.displayName!,
+      );
     // Once signed in, return the UserCredential
-    return await FirebaseAuth.instance.signInWithCredential(credential);
+    return userCredential;
   }
 
   @override
   Widget build(BuildContext context) {
+    userProvider = Provider.of<UserProvider>(context);
     return SafeArea(
       child: SizedBox(
         width: double.infinity,
