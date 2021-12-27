@@ -1,5 +1,6 @@
 /* singal_product */
 //Probablemnente necesitara un ajusted despues
+import 'package:devyapp/widgets/counter.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
@@ -24,7 +25,7 @@ class SingalProducts extends StatelessWidget {
       children: [
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-          height: 250,
+          height: 270,
           width: 160,
           decoration: BoxDecoration(
             color: Colors.white,
@@ -90,37 +91,53 @@ class SingalProducts extends StatelessWidget {
                           ],
                         ),
                       ),
+                      const SizedBox(
+                        height: 10,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        
                         children: [
                           Expanded(
-                              child: Container(
-                            height: 30,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
                             child: Container(
-                              padding: const EdgeInsets.only(top: 10),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: const [
-                                  Icon(Icons.remove,
-                                      size: 18, color: kTextColorP),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Text(
-                                    '1',
-                                    style: TextStyle(fontSize: 18),
-                                  ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Icon(Icons.add, size: 18, color: kTextColorP),
-                                ],
+                              height: 40,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
                               ),
-                            ),
-                          )),
+                              child: Count(),
+                              
+                              
+                              
+                              //Aqui
+                                        /* child: Container(
+                                          padding: const EdgeInsets.only(top: 10),
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.end,
+                                            children: const [
+                                              Icon(Icons.remove,
+                                                  size: 18, color: kTextColorP),/* Remove */
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Text(
+                                                '1',
+                                                style: TextStyle(fontSize: 18),
+                                              ),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Icon(Icons.add, size: 18, color: kTextColorP),/* ADD */
+                                            ],
+                                          ),
+                                        )  ,*/
+                              
+                              
+                              /* AQUIII */
+                              
+                            
+                            
+                            )
+                          ),
                         ],
                       )
                     ],
