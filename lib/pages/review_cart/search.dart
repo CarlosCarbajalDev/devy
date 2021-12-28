@@ -18,7 +18,7 @@ class ReviewCart extends StatelessWidget {
         iconTheme: const IconThemeData(color: Colors.white),
         title: const Text('Carrito de Compras'),
       ),
-      body: const Body(),
+      body: Body(),
       bottomNavigationBar: ListTile(
         title: Text("Total"),
         subtitle: Text("\$1700.00"),

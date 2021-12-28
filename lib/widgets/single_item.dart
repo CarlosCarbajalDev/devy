@@ -10,6 +10,7 @@ class SingleItem extends StatelessWidget {
   int? productNormalPrice;
   String? productId;
   int? productQuantity;
+  VoidCallback? onDelete;
   SingleItem(
       {this.productImage,
       this.productName,
@@ -18,6 +19,7 @@ class SingleItem extends StatelessWidget {
       this.isBool,
       this.productId,
       this.productQuantity,
+      this.onDelete,
       Key? key})
       : super(key: key);
 
@@ -128,10 +130,13 @@ class SingleItem extends StatelessWidget {
                 : Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(
-                        Icons.delete,
-                        size: 30,
-                        color: kTextColorP,
+                      InkWell(
+                        onTap: onDelete,
+                        child: const Icon(
+                          Icons.delete,
+                          size: 30,
+                          color: kTextColorP,
+                        ),
                       ),
                       SizedBox(height: 10),
                       Container(

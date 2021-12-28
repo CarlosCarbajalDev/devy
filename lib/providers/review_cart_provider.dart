@@ -54,4 +54,16 @@ class ReviewCartProvider with ChangeNotifier {
   List<ReviewCartModel> get getReviewCartDataList {
     return reviewCartDataList;
   }
+
+  /* cartDeleteItems */
+
+  reviewCartDataDelete(cartId) {
+    FirebaseFirestore.instance
+        .collection("ReviewCart")
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .collection("YourReviewCart")
+        .doc(cartId)
+        .delete();
+    notifyListeners();
+  }
 }
