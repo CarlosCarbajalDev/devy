@@ -1,6 +1,7 @@
 // import 'package:devy/screens/profile/profile_screen.dart';
 
 import 'package:devyapp/providers/product_provider.dart';
+import 'package:devyapp/providers/review_cart_provider.dart';
 import 'package:devyapp/providers/user_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -52,6 +53,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider<UserProvider>(
           create: (context) => UserProvider(),
+        ),
+        ChangeNotifierProvider<ReviewCartProvider>(
+          create: (context) => ReviewCartProvider(),
         ),
       ],
       child: MaterialApp(

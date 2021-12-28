@@ -1,9 +1,22 @@
+import 'package:devyapp/providers/review_cart_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../constants.dart';
 
 class Count extends StatefulWidget {
-  Count({Key? key}) : super(key: key);
+  String productName;
+  String productImage;
+  String productID;
+  int productPrice;
+
+  Count(
+      {required this.productID,
+      required this.productImage,
+      required this.productName,
+      required this.productPrice,
+      Key? key})
+      : super(key: key);
 
   @override
   _CountState createState() => _CountState();
@@ -14,33 +27,7 @@ class _CountState extends State<Count> {
   bool isTrue = false;
   @override
   Widget build(BuildContext context) {
-
-
-
-    /* Container(
-      padding: const EdgeInsets.only(top: 10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: const [
-          Icon(Icons.remove, size: 18, color: kTextColorP),
-          /* Remove */
-          SizedBox(
-            width: 10,
-          ),
-          Text(
-            '1',
-            style: TextStyle(fontSize: 18),
-          ),
-          SizedBox(
-            width: 10,
-          ),
-          Icon(Icons.add, size: 18, color: kTextColorP), /* ADD */
-        ],
-      ),
-    ); */
-
-
-
+    ReviewCartProvider reviewCartProvider = Provider.of(context);
     return Container(
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey),
@@ -98,6 +85,12 @@ class _CountState extends State<Count> {
                   setState(() {
                     isTrue = true;
                   });
+                  reviewCartProvider.addReviewCartData(
+                      cartId: widget.productID,
+                      cartImage: widget.productImage,
+                      cartName: widget.productName,
+                      cartPrice: widget.productPrice,
+                      cartQuantity: count);
                 },
                 child: const Text(
                   "Agregar al carrito",

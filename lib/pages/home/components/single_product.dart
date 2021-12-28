@@ -8,16 +8,18 @@ import '../../../constants.dart';
 class SingalProducts extends StatelessWidget {
   final String productImage;
   final String productName;
-  final int? productPrice;
-  final int? productNormalPrice;
+  final int productPrice;
+  final int productNormalPrice;
+  final String productId;
   final Function() onTap;
 
   SingalProducts(
       {required this.productImage,
       required this.productName,
-      required this.onTap, 
-      this.productPrice,
-      this.productNormalPrice});
+      required this.onTap,
+      required this.productPrice,
+      required this.productNormalPrice,
+      required this.productId});
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +85,7 @@ class SingalProducts extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              '\$$productPrice MXN', 
+                              '\$$productPrice MXN',
                               style: const TextStyle(
                                   color: kPrimaryColor,
                                   fontWeight: FontWeight.bold),
@@ -96,48 +98,20 @@ class SingalProducts extends StatelessWidget {
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        
                         children: [
                           Expanded(
-                            child: Container(
-                              height: 40,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Count(),
-                              
-                              
-                              
-                              //Aqui
-                                        /* child: Container(
-                                          padding: const EdgeInsets.only(top: 10),
-                                          child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.end,
-                                            children: const [
-                                              Icon(Icons.remove,
-                                                  size: 18, color: kTextColorP),/* Remove */
-                                              SizedBox(
-                                                width: 10,
-                                              ),
-                                              Text(
-                                                '1',
-                                                style: TextStyle(fontSize: 18),
-                                              ),
-                                              SizedBox(
-                                                width: 10,
-                                              ),
-                                              Icon(Icons.add, size: 18, color: kTextColorP),/* ADD */
-                                            ],
-                                          ),
-                                        )  ,*/
-                              
-                              
-                              /* AQUIII */
-                              
-                            
-                            
-                            )
-                          ),
+                              child: Container(
+                            height: 40,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Count(
+                              productID: productId ,
+                              productImage: productImage,
+                              productName: productName,
+                              productPrice: productPrice,
+                            ),
+                          )),
                         ],
                       )
                     ],

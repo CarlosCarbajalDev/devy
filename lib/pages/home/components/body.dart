@@ -73,8 +73,9 @@ class _BodyState extends State<Body> {
                         },
                         productImage: caseProductData.productImage!,
                         productName: caseProductData.productName!,
-                        productPrice: caseProductData.productPrice,
-                        productNormalPrice: caseProductData.productNormalPrice,
+                        productPrice: caseProductData.productPrice!,
+                        productNormalPrice: caseProductData.productNormalPrice!,
+                        productId: caseProductData.productId!,
                       );
                     }).toList()
                 /* children: [
@@ -145,8 +146,9 @@ class _BodyState extends State<Body> {
                         },
                         productImage: fashionProductData.productImage!,
                         productName: fashionProductData.productName!,
-                        productPrice: fashionProductData.productPrice,
-                        productNormalPrice: fashionProductData.productNormalPrice,
+                        productPrice: fashionProductData.productPrice!,
+                        productNormalPrice: fashionProductData.productNormalPrice!,
+                        productId: fashionProductData.productId!,
                       );
                     }).toList()
                 /* children: [
@@ -217,8 +219,9 @@ class _BodyState extends State<Body> {
                         },
                         productImage: homeProductData.productImage!,
                         productName: homeProductData.productName!,
-                        productPrice: homeProductData.productPrice,
-                        productNormalPrice: homeProductData.productNormalPrice,
+                        productPrice: homeProductData.productPrice!,
+                        productNormalPrice: homeProductData.productNormalPrice!,
+                        productId: homeProductData.productId!,
                       );
                     }).toList()
                 /* children: [

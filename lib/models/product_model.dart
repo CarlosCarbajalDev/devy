@@ -5,6 +5,7 @@ class ProductModel {
   String? productImage;
   int? productPrice;
   int? productNormalPrice;
-
-  ProductModel({this.productName, this.productImage, this.productPrice, required this.productNormalPrice});
+  String? productId;
+  ProductModel(
+      {this.productName, this.productImage, this.productPrice, this.productId,this.productNormalPrice});
 }
