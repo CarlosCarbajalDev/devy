@@ -38,7 +38,7 @@ class Body extends StatelessWidget {
         const SizedBox(
             height: 10,
         ),
-        SingleItem(
+/*         SingleItem(
           isBool: false,
         ),
         SingleItem(
@@ -46,7 +46,7 @@ class Body extends StatelessWidget {
         ),
         SingleItem(
           isBool: false,
-        ),
+        ), */
 
       ],
     );

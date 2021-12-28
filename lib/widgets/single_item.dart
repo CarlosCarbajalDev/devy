@@ -8,7 +8,18 @@ class SingleItem extends StatelessWidget {
   String? productName;
   int? productPrice;
   int? productNormalPrice;
-  SingleItem({this.productImage, this.productName, this.productNormalPrice, this.productPrice ,this.isBool, Key? key}) : super(key: key);
+  String? productId;
+  int? productQuantity;
+  SingleItem(
+      {this.productImage,
+      this.productName,
+      this.productNormalPrice,
+      this.productPrice,
+      this.isBool,
+      this.productId,
+      this.productQuantity,
+      Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +89,7 @@ class SingleItem extends StatelessWidget {
                           ],
                         ),
                       )
-                    : const Text("hola")
+                    : const Text("Iguala")
               ],
             ),
           )),
