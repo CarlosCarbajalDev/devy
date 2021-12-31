@@ -103,6 +103,7 @@ class _CountState extends State<Count> {
                   ),
                 ),
                 const SizedBox(width: 8),
+                const SizedBox(width: 0),
                 Text(
                   "$count",
                   style: const TextStyle(
