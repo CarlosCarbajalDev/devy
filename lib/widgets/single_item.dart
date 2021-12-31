@@ -148,17 +148,24 @@ class SingleItem extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: const [
                               Icon(
-                                Icons.add,
+                                Icons.remove,
                                 color: kPrimaryColor,
-                                size: 20,
+                                size: 25,
                               ),
+                              SizedBox(width: 8,),
                               Text(
-                                "Agregar",
+                                "1",
                                 style: TextStyle(
                                   color: kTextColorP,
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 14,
+                                  fontSize: 20,
                                 ),
+                              ),
+                              SizedBox(width: 8,),
+                              Icon(
+                                Icons.add,
+                                color: kPrimaryColor,
+                                size: 25,
                               ),
                             ],
                           ),
