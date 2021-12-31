@@ -44,6 +44,7 @@ class _BodyHomeState extends State<BodyHome> {
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => ProductOverview(
+                                    productId: caseProductData.productId!,
                                     productImage:
                                         caseProductData.productImage!,
                                     productName: caseProductData.productName!,
@@ -104,6 +105,7 @@ class _BodyHomeState extends State<BodyHome> {
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => ProductOverview(
+                                    productId: fashionProductData.productId!,
                                     productImage:
                                         fashionProductData.productImage!,
                                     productName: fashionProductData.productName!,
@@ -165,6 +167,7 @@ class _BodyHomeState extends State<BodyHome> {
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => ProductOverview(
+                                    productId: homeProductData.productId!,
                                     productImage:
                                         homeProductData.productImage!,
                                     productName: homeProductData.productName!,

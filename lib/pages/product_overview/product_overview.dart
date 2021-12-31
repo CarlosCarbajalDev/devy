@@ -1,6 +1,9 @@
 import 'package:devyapp/constants.dart';
+import 'package:devyapp/pages/review_cart/search.dart';
+import 'package:devyapp/providers/wish_list_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'components/body.dart';
 
@@ -11,14 +14,18 @@ class ProductOverview extends StatefulWidget {
   final String productImage;
   final int? productPrice;
   final int? productNormalPrice;
+  final String productId;
 
   static String routeName = "/product_overview";
   ProductOverview(
-      {Key? key,
-      required this.productName,
-      required this.productImage,
-      this.productPrice,
-      this.productNormalPrice})
+      {
+        Key? key,
+        required this.productName,
+        required this.productImage,
+        this.productPrice,
+        this.productNormalPrice,
+        required this.productId,
+      })
       : super(key: key);
 
   @override
@@ -34,35 +41,41 @@ class _ProductOverviewState extends State<ProductOverview> {
     required Color color,
     required String title,
     required IconData iconData,
-    Function? onTap,
+    required VoidCallback? onTap,
+    /* Maybe required */
   }) {
     return Expanded(
-      child: Container(
-        padding: const EdgeInsets.all(20),
-        color: backgroundColor,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              iconData,
-              size: 20,
-              color: iconColor,
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-            Text(
-              title,
-              style: TextStyle(color: color),
-            ),
-          ],
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          padding: const EdgeInsets.all(20),
+          color: backgroundColor,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                iconData,
+                size: 20,
+                color: iconColor,
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              Text(
+                title,
+                style: TextStyle(color: color),
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 
+  bool wishListBool = false;
   @override
   Widget build(BuildContext context) {
+    WishListProvider wishListProvider = Provider.of(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text("Product Overview"),
@@ -178,14 +191,39 @@ class _ProductOverviewState extends State<ProductOverview> {
               backgroundColor: kSecondaryColor,
               color: kPrimaryColorWhite,
               iconColor: kPrimaryColorWhite,
-              iconData: Icons.favorite_border_outlined,
-              title: "Agregar al carrito"),
+              iconData: wishListBool==false?Icons.favorite_border_outlined:Icons.favorite,
+              title: "Agregar al carrito",
+              onTap: () {
+                setState(() {
+                  wishListBool = !wishListBool;
+                });
+                if (wishListBool == true) {
+                  wishListProvider.addWishListData(
+                    wishListId: widget.productId,
+                    wishListImage: widget.productImage,
+                    wishListName: widget.productName,
+                    wishListPrice: widget.productPrice,
+                    wishListQuantity: 2,
+                  );
+                } else {
+                  /* wishListProvider.deleteWishtList(widget.productId); */
+                }
+              }),
           bonntonNavigatorBar(
               backgroundColor: kExtraColor,
               color: kTextColor,
               iconColor: kTextColor,
               iconData: Icons.shopping_cart_outlined,
-              title: "Ir al carrito")
+              title: "Ir al carrito",
+              onTap: (){
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        const ReviewCart()
+                  ),
+                );
+              }
+          )
         ],
       ),
     );
