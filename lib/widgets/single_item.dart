@@ -11,6 +11,8 @@ class SingleItem extends StatelessWidget {
   String? productId;
   int? productQuantity;
   VoidCallback? onDelete;
+  bool? wishList = false;
+
   SingleItem(
       {this.productImage,
       this.productName,
@@ -20,160 +22,214 @@ class SingleItem extends StatelessWidget {
       this.productId,
       this.productQuantity,
       this.onDelete,
+      this.wishList,
       Key? key})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return 
+    Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
       child: Row(
         children: [
           Expanded(
               child: Container(
-            height: 100,
-            child: Center(
-              child: Image.network(productImage!),
-            ),
-          )),
-          Expanded(
-              child: Container(
-            height: 100,
-            child: Column(
-              mainAxisAlignment: isBool == false
-                  ? MainAxisAlignment.spaceAround
-                  : MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      productName!,
-                      style: const TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      "\$$productPrice MXN",
-                      style: const TextStyle(
-                          color: kTextColorP, fontWeight: FontWeight.bold),
-                    ),
-                  ],
+                height: 100,
+                child: Center(
+                  child: Image.network(productImage!),
                 ),
-                isBool == false
-                    ? Container(
-                        margin: const EdgeInsets.only(right: 15),
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        height: 35,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey),
-                            borderRadius: BorderRadius.circular(30)),
-                        child: Row(
-                          children: const [
-                            Expanded(
-                              child: Text(
-                                "50 Piezas",
-                                style: TextStyle(
-                                  color: kTextColorP,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ),
-                            Center(
-                              child: Icon(
-                                Icons.arrow_drop_down,
-                                color: kTextColorP,
-                              ),
-                            )
-                          ],
-                        ),
-                      )
-                    : const Text("Iguala")
-              ],
-            ),
-          )),
+              )
+          ),
           Expanded(
-              child: Container(
-            height: 100,
-            padding: isBool == false
-                ? const EdgeInsets.symmetric(horizontal: 15, vertical: 32)
-                : const EdgeInsets.only(left: 15, right: 15),
-            child: isBool == false
-                ? Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.blue),
-                        borderRadius: BorderRadius.circular(30)),
-                    child: Center(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Icon(
-                            Icons.add,
-                            color: kPrimaryColor,
-                            size: 20,
-                          ),
-                          Text(
-                            "Agregar",
-                            style: TextStyle(
-                              color: kTextColorP,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  )
-                : Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+            child: Container(
+              height: 100,
+              child: Column(
+                mainAxisAlignment: isBool == false
+                    ? MainAxisAlignment.spaceAround
+                    : MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      InkWell(
-                        onTap: onDelete,
-                        child: const Icon(
-                          Icons.delete,
-                          size: 30,
-                          color: kTextColorP,
-                        ),
+                      Text(
+                        productName!,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(height: 10),
-                      Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.blue),
-                            borderRadius: BorderRadius.circular(30)),
-                        child: Center(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
-                              Icon(
-                                Icons.remove,
-                                color: kPrimaryColor,
-                                size: 25,
-                              ),
-                              SizedBox(width: 8,),
-                              Text(
-                                "1",
-                                style: TextStyle(
-                                  color: kTextColorP,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20,
-                                ),
-                              ),
-                              SizedBox(width: 8,),
-                              Icon(
-                                Icons.add,
-                                color: kPrimaryColor,
-                                size: 25,
-                              ),
-                            ],
-                          ),
-                        ),
-                      )
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        "\$$productPrice MXN",
+                        style: const TextStyle(
+                            color: kTextColorP, fontWeight: FontWeight.bold),
+                      ),
                     ],
                   ),
-          )),
+                  isBool == false
+                      ? Container(
+                          margin: const EdgeInsets.only(right: 15),
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          height: 35,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(30)),
+                          child: Row(
+                            children: const [
+                              Expanded(
+                                child: Text(
+                                  "60 Piezas", /* 50 */ /* G */
+                                  style: TextStyle(
+                                    color: kTextColorP,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 14,
+                                  ),
+                                ),
+                              ),
+                              Center(
+                                child: Icon(
+                                  Icons.arrow_drop_down,
+                                  color: kTextColorP,
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      : const Text("Iguala")
+                ],
+              ),
+            )
+          ),
+
+          
+
+
+
+
+
+
+
+
+
+
+
+          Expanded(
+            child: Container(
+              height: 100,
+              padding: isBool == false
+                  ? const EdgeInsets.symmetric(horizontal: 15, vertical: 32)
+                  : const EdgeInsets.only(left: 15, right: 15),
+              child: isBool == false
+                  ? Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.blue),
+                          borderRadius: BorderRadius.circular(30)),
+                      child: Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(
+                              Icons.add,
+                              color: kPrimaryColor,
+                              size: 20,
+                            ),
+                            Text(
+                              "Agregar",
+                              style: TextStyle(
+                                color: kTextColorP,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    )
+                  : Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        InkWell(
+                          onTap: onDelete,
+                          child: const Icon(
+                            Icons.delete,
+                            size: 30,
+                            color: kTextColorP,
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        wishList == false 
+                        ? Container(
+                          height: 25,
+                          width: 70,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: kTerciaryColor),
+                            borderRadius: BorderRadius.circular(30),/*  */
+                          ),
+                          child: Center(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: const [
+                                Icon(
+                                  Icons.remove,
+                                  color: kPrimaryColor,
+                                  size: 20,
+                                ),
+                                Text(
+                                  "1",
+                                  style: TextStyle(
+                                    color: kPrimaryColor,
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.add,
+                                  color: kPrimaryColor,
+                                  size: 20,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ): Container(),
+                        // Container(
+                        //   decoration: BoxDecoration(
+                        //       border: Border.all(color: Colors.blue),
+                        //       borderRadius: BorderRadius.circular(30)),
+                        //   child: Center(
+                        //     child: Row(
+                        //       mainAxisAlignment: MainAxisAlignment.center,
+                        //       children: const [
+                        //         Icon(
+                        //           Icons.remove,
+                        //           color: kPrimaryColor,
+                        //           size: 25,
+                        //         ),
+                        //         SizedBox(
+                        //           width: 8,
+                        //         ),
+                        //         Text(
+                        //           "1",
+                        //           style: TextStyle(
+                        //             color: kTextColorP,
+                        //             fontWeight: FontWeight.bold,
+                        //             fontSize: 20,
+                        //           ),
+                        //         ),
+                        //         SizedBox(
+                        //           width: 8,
+                        //         ),
+                        //         Icon(
+                        //           Icons.add,
+                        //           color: kPrimaryColor,
+                        //           size: 25,
+                        //         ),
+                        //       ],
+                        //     ),
+                        //   ),
+                        // )
+                      ],
+                    ),
+            )
+          ),
         ],
       ),
     );

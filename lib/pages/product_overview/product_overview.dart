@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:devyapp/constants.dart';
 import 'package:devyapp/pages/review_cart/search.dart';
 import 'package:devyapp/providers/wish_list_provider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -17,16 +19,14 @@ class ProductOverview extends StatefulWidget {
   final String productId;
 
   static String routeName = "/product_overview";
-  ProductOverview(
-      {
-        Key? key,
-        required this.productName,
-        required this.productImage,
-        this.productPrice,
-        this.productNormalPrice,
-        required this.productId,
-      })
-      : super(key: key);
+  ProductOverview({
+    Key? key,
+    required this.productName,
+    required this.productImage,
+    this.productPrice,
+    this.productNormalPrice,
+    required this.productId,
+  }) : super(key: key);
 
   @override
   _ProductOverviewState createState() => _ProductOverviewState();
@@ -73,9 +73,49 @@ class _ProductOverviewState extends State<ProductOverview> {
   }
 
   bool wishListBool = false;
+/* 
+  getWishListBool() {
+    FirebaseFirestore.instance
+        .collection("WishList")
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .collection("YourWishList")
+        .doc(widget.productId)
+        .get()
+        .then((value) => {
+              if (mounted)
+                {
+                  if (value.exists)
+                    {
+                      setState(() {
+                        wishListBool = value.get("wishList");
+                      })
+                    }
+                }
+            });
+  } */
+
+  getWishListBool() {
+    FirebaseFirestore.instance
+        .collection("WishList")
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .collection("YourWishList")
+        .doc(widget.productId)
+        .get()
+        .then((value) => {
+              if (mounted){
+                      setState(
+                        () {
+                          wishListBool = value.get("wishList");
+                        },
+                      ),
+                }
+            });
+  }
+
   @override
   Widget build(BuildContext context) {
     WishListProvider wishListProvider = Provider.of(context);
+    getWishListBool();
     return Scaffold(
       appBar: AppBar(
         title: const Text("Product Overview"),
@@ -191,7 +231,9 @@ class _ProductOverviewState extends State<ProductOverview> {
               backgroundColor: kSecondaryColor,
               color: kPrimaryColorWhite,
               iconColor: kPrimaryColorWhite,
-              iconData: wishListBool==false?Icons.favorite_border_outlined:Icons.favorite,
+              iconData: wishListBool == false
+                  ? Icons.favorite_border_outlined
+                  : Icons.favorite,
               title: "Agregar al carrito",
               onTap: () {
                 setState(() {
@@ -206,7 +248,7 @@ class _ProductOverviewState extends State<ProductOverview> {
                     wishListQuantity: 2,
                   );
                 } else {
-                  /* wishListProvider.deleteWishtList(widget.productId); */
+                  wishListProvider.deleteWishtList(widget.productId);
                 }
               }),
           bonntonNavigatorBar(
@@ -215,15 +257,11 @@ class _ProductOverviewState extends State<ProductOverview> {
               iconColor: kTextColor,
               iconData: Icons.shopping_cart_outlined,
               title: "Ir al carrito",
-              onTap: (){
+              onTap: () {
                 Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        const ReviewCart()
-                  ),
+                  MaterialPageRoute(builder: (context) => const ReviewCart()),
                 );
-              }
-          )
+              })
         ],
       ),
     );

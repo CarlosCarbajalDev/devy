@@ -33,6 +33,8 @@ class Body extends StatelessWidget {
                     height: 10,
                   ),
                   SingleItem(
+                    isBool: true,
+                    wishList: false,
                     productImage: data.cartImage,
                     productName: data.cartName,
                     /* productNormalPrice:  */

@@ -1,4 +1,5 @@
 import 'package:devyapp/pages/review_cart/search.dart';
+import 'package:devyapp/pages/wishList/wish_list.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
@@ -98,7 +99,9 @@ class DrawerApp extends StatelessWidget {
               ),
             listTile(
                 icon: Icons.star_outline, title: "Calificaciones y Reseñas"),
-            listTile(icon: Icons.favorite_outline, title: "Lista de Deseos"),
+            listTile(icon: Icons.favorite_outline, title: "Lista de Deseos",onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) =>  WishList()));
+              },),
             listTile(icon: Icons.copy_outlined, title: "Quejas"),
             listTile(
                 icon: Icons.format_quote_outlined,
